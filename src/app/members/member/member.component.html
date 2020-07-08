@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-6 m-auto">
+    <button
+      class="btn btn-light"
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+    >
+      Back
+    </button>
+    <div class="card p-3 bg-warning text-dark">
+      <app-loading-spinner *ngIf="!user"></app-loading-spinner>
+      <div *ngIf="user">
+        <h3>{{ user.login }}</h3>
+
+        <img
+          src="{{ user.avatar_url }}"
+          class="rounded mx-auto d-block"
+          alt="github avatar"
+          style="width: 100%;"
+        />
+
+        <div>ID: {{ user.id }}</div>
+      </div>
+    </div>
+  </div>
+</div>

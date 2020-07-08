@@ -1,0 +1,18 @@
+<td class="align-middle">
+  <img
+    [src]="member.avatar_url"
+    style="width: 7rem;"
+    class="img-thumbnail rounded-circle"
+  />
+</td>
+<td class="align-middle">
+  <span>{{ member.id }}</span>
+</td>
+<td class="align-middle">
+  <span>{{ member.login }}</span>
+</td>
+<td class="align-middle">
+  <button class="btn btn-warning" routerLink="/{{ member.login }}">
+    details
+  </button>
+</td>

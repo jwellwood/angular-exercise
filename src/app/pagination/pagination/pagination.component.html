@@ -1,0 +1,36 @@
+<nav aria-label="Page navigation example">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="pagination">
+          <li *ngFor="let page of pageNumbers" class="page-item">
+            <a
+              class="page-link text-primary bg-warning"
+              (click)="onChangePage(page)"
+              >{{ page }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect"
+              >Per page</label
+            >
+          </div>
+          <select
+            class="custom-select"
+            id="inputGroupSelect"
+            #perPageSelect
+            (change)="onChangeMembersPerPage(perPageSelect.value)"
+          >
+            <option value="3">3</option>
+            <option selected value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

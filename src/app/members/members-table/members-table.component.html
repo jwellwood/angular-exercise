@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h1 class="display-3">Members Page</h1>
+  <div class="input-group col-sm-6 my-3">
+    <input type="text" class="form-control" [(ngModel)]="organizationName" />
+    <button (click)="loadMembers()" class="btn btn-primary" type="button">
+      Load
+    </button>
+  </div>
+  <app-pagination
+    *ngIf="members"
+    [members]="members"
+    [membersPerPage]="membersPerPage"
+    (changeMembersPerPage)="perPageHandler($event)"
+    (changePage)="pageChangeHandler($event)"
+  ></app-pagination>
+  <table class="table">
+    <thead app-member-head class="thead-dark"></thead>
+
+    <app-loading-spinner *ngIf="loading && !error"></app-loading-spinner>
+
+    <div class="text-danger" *ngIf="error">Sorry - {{ error }}. Try again!</div>
+    <tbody>
+      <tr
+        app-member-row
+        *ngFor="let member of membersToShow"
+        [member]="member"
+      ></tr>
+    </tbody>
+  </table>
+</div>
